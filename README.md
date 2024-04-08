@@ -2,16 +2,18 @@
 
 ## Due date: Friday, April 19 at 11:59pm
 
-There are four parts to this homework.
+There are three required parts to this homework.
+Part 4 (`part4.py`) is extra credit.
 
-- The first and second parts are a series of small, mini-exercises.
+- The first part is a series of small, mini-exercises.
 The exercises are designed to help you get used to the Hypothesis syntax, as well as core concepts (specifications, correctness, preconditions).
+
+- The second part is a slightly more real-world-ish case study,
+using Python classes. It also discusses some of the limitations
+of testing with Hypothesis.
 
 - The third part gives you a small Python program with a bug, and asks you to find the bug, using Hypothesis.
 You should commit a change for the bug, and also the test(s) you used to help find it.
-
-- The fourth part is a more open-ended task to implement your own program, and to write tests for it, for a rock paper scissors game.
-In addition, you will be asked to write a "wrong" version of at least one function and show that it fails the Hypothesis tests.
 
 ## Getting started
 
@@ -30,10 +32,18 @@ Clone the repository with `git clone`.
 
 Then open and edit the files `part1.py`, `part2.py`, and `part3.py`.
 To run the code, you can use
-```
+```shell
 pytest part1.py
 pytest part2.py
 pytest part3.py
+```
+
+## Extra credit
+
+There is also a fourth part, that is optional extra credit.
+This is a more open-ended task to implement your own program, and to write tests for it, for a rock paper scissors game.
+In addition, you will be asked to write a "wrong" version of one of the functions and show that it fails the Hypothesis tests.
+```shell
 pytest part4.py
 ```
 

@@ -1,8 +1,10 @@
 """
-Part 4: Rock paper scissors game
+Part 4 (Extra Credit)
 
-For the last part of the assignment, you will implement
-a rock paper scissors game where
+Rock paper scissors game
+
+This part of the assignment is extra credit.
+It asks you to implement a rock paper scissors game where
 you can play against a finite-state-machine opponent.
 
 === Game explanation ===
@@ -124,24 +126,23 @@ You may add additional data fields and methods to the class if you wish.
 
 === Part 4: Wrong implementation ===
 
-Write at least one "wrong" implementation of one of the functions and methods
-we have tested so far.
+Write a "wrong" implementation for at least one of the functions
+and methods we have tested so far.
 Check the same wrong implementation against the same Hypothesis test you wrote
 before. Does it catch the bug?
 
 === Part 5: Game Entrypoint ===
 
-Lastly, add an entrypoint.
+Add an entrypoint.
 Your game entrypoint should allow the user to put in a number of rounds to play,
 and a number of states for the state machine.
 Then it should generate a random state machine and play the game,
 and at the end, report on a winner.
 
-=== Part 6 (bonus): A more interesting property ===
+=== Part 6: A more interesting property ===
 
-This part is extra credit.
-
-Here is a more interesting property you can test, if you have time
+Finally, here is a more interesting property you can test,
+if you have time.
 Suppose we keep playing the same move against the state machine.
 What happens?
 Does the state machine eventually loop?
