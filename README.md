@@ -6,9 +6,10 @@ There are four parts to this homework.
 The exercises are designed to help you get used to the Hypothesis syntax, as well as core concepts (specifications, correctness, preconditions).
 
 - The third part gives you a small Python program with a bug, and asks you to find the bug, using Hypothesis.
-You should commit a change for the bug, and also all tests you used to help find them.
+You should commit a change for the bug, and also the test(s) you used to help find it.
 
-- The fourth part is an open-ended task to implement your own program, and to write tests for it. In addition, you will be asked to write "wrong" versions of every function and show that they fail the unit tests.
+- The fourth part is a more open-ended task to implement your own program, and to write tests for it, for a rock paper scissors game.
+In addition, you will be asked to write a "wrong" version of at least one function and show that it fails the Hypothesis tests.
 
 ## Getting started
 
@@ -33,11 +34,12 @@ pytest part4.py
 
 **Important:**
 
-- To make sure you get credit for your work, please make sure that your code runs! You should be able to run `pytest <yourfile>.py` and see a list of successful, failing, and skipped test cases.
+- We won't be able to grade code that doesn't run, so please make sure that your code runs before submitting. You should be able to run `pytest <yourfile>.py` and see a list of successful, failing, and skipped test cases.
+(We will be running `pytest` on our end during grading.)
 
-- We won't be able to give credit if your code doesn't run. Unfortunately, we (the instructor and TA) only have limited time and it often takes a large investment to debug student submissions. If you have some broken code, please comment out the broken parts (or add `@pytest.mark.skip` to the unit tests) to ensure you receive some partial credit.
+- If you have some broken code, please remember to comment out the broken parts (or use `@pytest.mark.skip` to the unit tests) to ensure you receive some partial credit.
 
-- Please do not modify the file names or the list of `test_` functions in parts 1 and 2, as your results will be compared with the official rubric. If you want to add other tests, remember to comment them out after. On part 3, you can have any number of tests.
+- Please do not modify the file names or the list of `test_` functions in parts 1 and 2, as your results will be compared with the official rubric. If you want to add other tests, remember to comment them out after. On parts 3 and 4, you can have any number of tests.
 
 - If your code is correct, **there should be no failures (shown in red)** -- instead, we will be using the annotation `pytest.mark.xfail` to mark tests that are expected to fail. These will show up in yellow.
 
