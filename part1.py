@@ -98,16 +98,91 @@ Now answer these questions:
 
 """
 B. Writing specifications, part 2
+
+Write a specification for the following two functions.
+
+9. pad_with_spaces
+
+10. split_in_half
+
+Your specifications should completely describe the behavior of the function
+on all possible inputs.
+The @given annotations are written for you.
 """
 
+def pad_with_spaces(s, n):
+    """
+    Given a string s and an integer n, returns a string that is
+    n characters long, with s on the left and spaces on the right.
+    If s is longer than n, returns None.
+    """
+    if len(s) > n:
+        return None
+    return s + " " * (n - len(s))
 
+@pytest.mark.skip(reason="Unimplemented")
+@given(
+    st.text(),
+    st.integers(min_value=0, max_value=1000),
+)
+def test_pad_with_spaces(s, n):
+    # (In Python, a better style than using 'pass' to indicate unimplemented
+    # functions is to raise a NotImplementedError exception.
+    # We will use this style in the rest of the file. Remove the following
+    # line once you have implemented the test.)
+    # TODO
+    raise NotImplementedError
+
+def split_in_half(s):
+    """
+    Given a string s, returns a tuple of two strings, where the first string
+    is the first half of s and the second string is the second half.
+    If the length of s is odd, the first string is one longer than the second.
+    """
+    mid = (len(s) + 1) // 2
+    return s[:mid], s[mid:]
+
+@pytest.mark.skip(reason="Unimplemented")
+@given(st.text())
+def test_split_in_half(s):
+    # TODO
+    raise NotImplementedError
 
 """
-C. Fast Fahrenheit-Celsius conversion
+11. Modify split_in_half to introduce an off-by-one error.
+(There are multiple ways to do this, so you can choose any one you like.)
 
-This exercise is about playing with preconditions!
-We will use Hypothesis to determine the largest possible
-set of inputs for which a given specification holds.
+Check that the same test you wrote above catches the bug
+(fails on the buggy implementation).
+
+Trivia:
+If you wrote your specification correctly, *any* program that has a
+different output from the correct implementation -- even on a single input --
+should fail to satisfy the specification!
+This type of specification is called a "strongest postcondition"
+because it is the strongest property (the most specific) that must hold after
+the function is executed.
+We will learn more about strongest postconditions in the program verification
+part of the course.
+"""
+
+def split_in_half_buggy(s):
+    # TODO
+    raise NotImplementedError
+
+@pytest.mark.skip(reason="Unimplemented")
+@given(st.text())
+def test_split_in_half_buggy(s):
+    # TODO
+    raise NotImplementedError
+
+"""
+C. Exploring preconditions: Fahrenheit-Celsius conversion
+
+The next few exercises are about playing with preconditions!
+Preconditions are the @given annotations that we have been using.
+We will use Hypothesis preconditions to determine the
+set of inputs for which a certain property holds.
 
 Here is a popular "mental math" trick to convert Fahrenheit to Celsius:
 Subtract 30 from the Fahrenheit temperature and divide by 2.
@@ -136,7 +211,7 @@ def true_c_to_f(c):
     return round(c * 9/5 + 32)
 
 """
-9. Use Hypothesis to determine for which inputs the conversion above
+12. Use Hypothesis to determine for which inputs the conversion above
 (the _v1 functions) is close to correct: within an error of 5 degrees.
 
 The interesting part here is the @given annotation --
@@ -164,9 +239,6 @@ from hypothesis import settings
 # @given(st.integers(..))
 @settings(max_examples=500)
 def test_f_to_c_v1(f):
-    # In Python, a better style than using 'pass' to indicate unimplemented
-    # functions is to raise a NotImplementedError exception.
-    # We will use this style in the rest of the file.
     # TODO
     raise NotImplementedError
 
@@ -178,7 +250,8 @@ def test_c_to_f_v1(c):
     raise NotImplementedError
 
 """
-11. Here is a more precise trick:
+13. Here is a more precise trick:
+
 For F to C, subtract 32, then divide by two, and let that result be x.
 Then compute x / 10 (float division) and add it to x.
 Round the result to the nearest integer.
@@ -218,12 +291,13 @@ def test_c_to_f_v2(c):
     raise NotImplementedError
 
 """
-12. We would like it to be true that converting from C to F and then back,
+14. We would also like it to be true that converting from C to F and then back,
 followed by converting back to C and then to F, gives the original value.
 x -> convert to F -> convert to C -> x
 Similarly:
 x -> convert to C -> convert to F -> x
 
+Assume that we can tolerate an error of 1 degree in the final result.
 Write a test that checks both properties using Hypothesis,
 and find the smallest and largest values for which the property holds.
 """
@@ -241,30 +315,3 @@ def test_f_to_c_to_f(x):
 def test_c_to_f_to_c(x):
     # TODO
     raise NotImplementedError
-
-"""
-C. TODO
-
-For this part, we will ask you to write the *strongest possible*
-specification for the function.
-The input precondition (@given) is given to you.
-You should write an assertion on the output that checks
-exactly what it should be equal to.
-
-Trivia: Specifications of this form are called "functional correctness"
-specifications because they specify exactly what the function should do.
-They are also known as "strongest postcondition" specifications.
-We will learn more about these in the program verification
-part of the course.
-"""
-
-# Preconditions
-
-
-# Example with assume in hypothesis
-
-# Example with a loop invariant
-
-def repeated_square(x, n):
-    # TODO: implement
-    pass
