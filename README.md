@@ -1,5 +1,7 @@
 # Homework 1: Writing Specifications with Hypothesis
 
+## Due date: Friday, April 19 at 11:59pm
+
 There are four parts to this homework.
 
 - The first and second parts are a series of small, mini-exercises.
