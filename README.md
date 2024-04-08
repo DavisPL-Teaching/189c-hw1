@@ -16,8 +16,13 @@ In addition, you will be asked to write a "wrong" version of at least one functi
 To get started, [make sure you have completed Homework 0](https://github.com/DavisPL-Teaching/189c-hw0);
 in particular, you should have Python, Hypothesis, and Pytest installed.
 
-You will submit the homework through GitHub Classroom.
-Create an account via the instructions on Piazza.
+You will submit the homework through [GitHub Classroom](https://classroom.github.com/classrooms/165522706-ecs-189c-sq-2024).
+GitHub classroom should have a user account set up for your name,
+you will need to select that user account and associate it with your
+GitHub handle.
+If you have trouble creating an account, or with this step
+in general, please let us know on Piazza.
+
 To start the assignment, you will get your own fork of the repository to work with.
 Clone the repository with `git clone`.
 
