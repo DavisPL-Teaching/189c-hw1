@@ -7,8 +7,9 @@ Unfortunately, it contains a bug -- your goal is to find and fix it.
 
 === Your task ===
 
-For each method, write at least one test using Hypothesis that
-tests the method.
+Write at least one test using Hypothesis to identify for the bug.
+Your test(s) don't have to cover all behaviors on all inputs, but they should
+test a more interesting behavior than just a single input.
 
 During testing, you can modify the code to fix the bug,
 however, at the bottom of the file, fill in the function
@@ -43,7 +44,7 @@ Let's define the "score" of a set of denominations as the product of:
 
 The program is given as input a list of integers,
 where at least one of the integers is 1.
-Rhe program outputs the score of the denominations.
+The program outputs the score of the denominations.
 
 === Notes ===
 
@@ -52,10 +53,13 @@ necessarily want to rewrite it yourself, and it may have some conventions
 you are not familiar with (for example, it is using type annotations).
 So you shouldn't try to modify it directly.
 
-Instead, try to understand what it's doing without reading every liene.
+Instead, try to understand what it's doing without reading every line.
 Are there simple properties you can test about each method's behavior?
 You don't have to write a test for every possible input -- pick
 some interesting cases where you can easily predict what the output should be?
+
+There is a constant N = 100 in the code. If it helps, you can modify
+this constant to help with testing.
 """
 
 import pytest
