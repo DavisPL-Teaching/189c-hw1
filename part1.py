@@ -300,6 +300,7 @@ x -> convert to C -> convert to F -> x
 Assume that we can tolerate an error of 1 degree in the final result.
 Write a test that checks both properties using Hypothesis,
 and find the smallest and largest values for which the property holds.
+Use the more precise _v2 versions for this problem.
 """
 
 # @given(..)

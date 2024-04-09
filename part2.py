@@ -7,8 +7,8 @@ from hypothesis import strategies as st
 import pytest
 
 """
-Below we have a basic Python class that is used to store user information in
-a database. The user is defined by a name, an age, and a list of friends.
+Below we have a basic Python class that is used to store user information.
+The user is defined by a name, an age, and a list of friends.
 
 In Python, the __init__ method is called when a new object is created.
 For example, to create a new user, we would write:
@@ -140,7 +140,7 @@ def print_user(self):
     st.integers(),
     st.lists(st.text()),
 )
-def test_user_init(name, age, friends):
+def test_print_user(name, age, friends):
     raise NotImplementedError
 
 """
@@ -283,9 +283,10 @@ def test_update_age_with_1(name, age, f):
 """
 16. A function is called "pure" if it does not modify its state when called,
 and it does not have any other side effects (like printing to the console).
-That is, the output of the function only depends on its inputs.
+That is, the outcome of calling the function is
+solely defined by its input-output behavior.
 
-Write a version of the test_update_age_with test that passes
+Write a version of test_update_age_with that passes
 by adding pure=True to the st.functions strategy.
 The test should pass.
 """
