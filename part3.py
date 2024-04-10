@@ -27,7 +27,7 @@ For example:
 ```
     python3 part3.py 1 5 10 20 100
 ```
-You can run your tests by running `pytest part2.py`.
+You can run your tests by running `pytest part3.py`.
 
 === Problem description ===
 

@@ -311,5 +311,5 @@ Try writing a test that does not assume f is pure and passes.
 
 @pytest.mark.skip(reason="Extra credit")
 # @given(..)
-def test_update_age_with_2(name, age, f):
+def test_update_age_with_3(name, age, f):
     raise NotImplementedError
