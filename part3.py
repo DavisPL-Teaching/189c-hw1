@@ -42,7 +42,7 @@ Let's define the "score" of a set of denominations as the product of:
         For example, if the denominations are 1, 5, 10, 20, and 50, the number
         of bills required to make 47 is 5, 1 + 1 + 5 + 20 + 20. The average
         over all numbers from 1 to 100 turns out to be 4.22.
-    2. The number of bills. For our example, this is 5, so the score would be 5 * 4.22 = 211.
+    2. The number of bills. For our example, this is 5, so the score would be 5 * 4.22 = 21.1.
 (A lower score is better.)
 
 The program is given as input a list of integers,

@@ -25,7 +25,7 @@ If needed, you can also bound the list size (e.g., to size 100)
 to tell pytest that the test is expected to fail.
 We will use this during grading to check if you have correctly identified the properties!
 
-The @given annotation is written for you for the first one.
+The @given annotation and specification is written for you for the first one.
 
 1. The average of a list of nonnegative numbers is nonnegative.
 
@@ -57,7 +57,6 @@ def average(l):
 )
 def test_average_1(l):
     assert average(l) >= 0
-    pass
 
 @pytest.mark.skip(reason="Unimplemented")
 # @given(...)
@@ -180,7 +179,8 @@ def test_split_in_half_buggy(s):
 C. Exploring preconditions: Fahrenheit-Celsius conversion
 
 The next few exercises are about playing with preconditions!
-Preconditions are the @given annotations that we have been using.
+Preconditions are the input constraints inside
+the @given annotations that we have been writing.
 We will use Hypothesis preconditions to determine the
 set of inputs for which a certain property holds.
 
@@ -291,8 +291,8 @@ def test_c_to_f_v2(c):
     raise NotImplementedError
 
 """
-14. We would also like it to be true that converting from C to F and then back,
-followed by converting back to C and then to F, gives the original value.
+14. We would also like it to be true that converting from C to F,
+followed by converting back from F to C, gives the original value.
 x -> convert to F -> convert to C -> x
 Similarly:
 x -> convert to C -> convert to F -> x
