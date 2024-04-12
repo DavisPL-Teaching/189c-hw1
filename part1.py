@@ -107,6 +107,10 @@ Write a specification for the following two functions.
 Your specifications should completely describe the behavior of the function
 on all possible inputs.
 The @given annotations are written for you.
+
+Clarification on "Completely describe the behavior of the function":
+this means that you should take the output of the function, and check that every piece of data in it was computed correctly.
+It may feel like you are re-implementing the logic of the function in some parts, that's OK.
 """
 
 def pad_with_spaces(s, n):

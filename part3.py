@@ -11,14 +11,19 @@ Write at least one test using Hypothesis to identify for the bug.
 Your test(s) don't have to cover all behaviors on all inputs, but they should
 test a more interesting behavior than just a single input.
 
-During testing, you can modify the code to fix the bug,
-however, at the bottom of the file, fill in the function
+After testing, please modify the code to fix the bug.
+In addition, at the bottom of the file, fill in the function
 
     test_bug
 
-with the test that was able to demonstrate the bug.
+with a test that was able to demonstrate the bug.
 This function should fail on the original implementation and
 pass on the fixed implementation.
+
+Also, one clarification:
+if your test requries modifying N, you may
+modify the code to make N a parameter, rather
+than a global constant.
 
 === Running the code ===
 
@@ -79,7 +84,7 @@ def get_score(avg: float, numdenominations: int) -> int:
 # minimum number of bills to create the value i,
 # given the list of denominations and the minimum number of bills
 # to create values from 0 to i-1.
-def min_next(i: int, demons: List[int], bills_for: List[int]) -> int:
+def min_next(i: int, denoms: List[int], bills_for: List[int]) -> int:
     return min([
         1 + bills_for[i - d]
         for d in denoms

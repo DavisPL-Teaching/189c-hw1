@@ -144,7 +144,7 @@ def test_print_user(name, age, friends):
     raise NotImplementedError
 
 """
-9. Below we have a method to check whether a user is a friend of another user.
+9. Below we have a function to check whether a user is a friend of another user.
 However, it was implemented incorrectly.
 
 Uncomment the test. It runs for a long time before failing -- why?
@@ -181,7 +181,7 @@ Why or why not?
 
 """
 11. Here is another example similar to the above.
-Here we have a from_server method that contacts a server
+Here we have a from_server function that contacts a server
 and waits to get a user. For the purposes of this exercise,
 let's assume that the server is not available.
 
@@ -218,9 +218,9 @@ Why or why not?
 """
 
 """
-13. Below we have a method for adding a friend to a user.
+13. Below we have a function for adding a friend to a user.
 However, it was again implemented incorrectly.
-The method overwrites any existing friends with the new friend.
+The function overwrites any existing friends with the new friend.
 
 Unskip the test. What happens?
 
@@ -254,16 +254,16 @@ about specifications?
 Mutability is the ability of an object or function to change its state after
 it has been created.
 
-Let's add one last method to the User class, which applies a function to the age.
-The method below (given to you) takes a function f as argument, and
+Let's add one last function to the User class, which applies a function to the age.
+The function below (given to you) takes a function f as argument, and
 returns a new User object.
-Write a specification for the new method using Hypothesis.
+Write a specification for the new function using Hypothesis.
 Your specification should:
 - create a user from name and age
 - apply the function f to the age
 - check that the new user's age matches the result of applying f to the original age.
 
-Recall that you can use Hypothesis to generate functions.
+Remember that you can use Hypothesis to generate functions.
 We did an example of this in the lecture1.py file.
 For this part, for the function argument, please use this:
     st.functions(like=lambda x: x,returns=st.integers())
@@ -297,14 +297,14 @@ def test_update_age_with_2(name, age, f):
     raise NotImplementedError
 
 """
-17. Bonus question (extra credit):
+17. Bonus question (Hard, extra credit):
 
 The problem with the specification in exercise 16 is that it assumes f is pure,
 but in the real world, this is not very realistic.
 Many functions do have state, and f might be mutable or even mutate the user
 object itself.
 
-Is there any way to test that the method behaves correctly without assuming f is pure?
+Is there any way to test that the function behaves correctly without assuming f is pure?
 
 Try writing a test that does not assume f is pure and passes.
 """
