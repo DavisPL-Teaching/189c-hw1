@@ -218,13 +218,18 @@ def true_c_to_f(c):
 12. Use Hypothesis to determine for which inputs the conversion above
 (the _v1 functions) is close to correct: within an error of 5 degrees.
 
+For simplicity, assume the input/output for all functions are integers!
+Don't worry about floating point inputs. (That is also why the outputs above
+are rounded.)
+
 The interesting part here is the @given annotation --
 you should play with the minimum and maximum values
     min_value=...
     max_value=...
-to see for which values the test passes.
-Your final answer should have a @given annotation with the minimum as small
-as possible and the maximum as large as possible, such that the test passes.
+to see for which *integers* the test passes.
+Your final answer should have a @given annotation with the minimum integer
+as small as possible and the maximum integer as large as possible,
+such that the test passes.
 
 Note: you may need to change max_examples to get some tests to fail reliably.
 You can do that by adding:
