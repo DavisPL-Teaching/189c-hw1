@@ -7,8 +7,8 @@ Unfortunately, it contains a bug -- your goal is to find and fix it.
 
 === Your task ===
 
-Write at least one test using Hypothesis to identify for the bug.
-Your test(s) don't have to cover all behaviors on all inputs, but they should
+Write a single test using Hypothesis to identify for the bug.
+Your test doesn't have to cover all behaviors on all inputs, but it should
 test a more interesting behavior than just a single input.
 
 After testing, please modify the code to fix the bug.
@@ -16,14 +16,24 @@ In addition, at the bottom of the file, fill in the function
 
     test_bug
 
-with a test that was able to demonstrate the bug.
+with your test that was able to demonstrate the bug.
 This function should fail on the original implementation and
 pass on the fixed implementation.
 
-Also, one clarification:
-if your test requries modifying N, you may
-modify the code to make N a parameter, rather
-than a global constant.
+=== Grading Notes ===
+
+You shouldn't modify any function signatures - or modify any of the existing
+code, other than the single bug fix!
+The bug fix does not require fixing several different lines of code, it is isolated
+in a single place.
+
+Note that the parameter N is set to 100 by default (DEFAULT_N).
+You may pass a different value of N in your test if needed, if you want
+to try a different value of N,
+but don't modify the global parameter DEFAULT_N.
+
+We will grade your test by running it on the buggy and the fixed version of the program, to check if it can successfully identify the buggy version while
+passing for the fixed version.
 
 === Running the code ===
 
@@ -54,7 +64,7 @@ The program is given as input a list of integers,
 where at least one of the integers is 1.
 The program outputs the score of the denominations.
 
-=== Notes ===
+=== Other helpful notes ===
 
 You should think of this program as "someone else's code" -- you don't
 necessarily want to rewrite it yourself, and it may have some conventions
@@ -63,18 +73,17 @@ So you shouldn't try to modify it directly.
 
 Instead, try to understand what it's doing without reading every line.
 Are there simple properties you can test about each method's behavior?
-You don't have to write a test for every possible input -- pick
-some interesting cases where you can easily predict what the output should be?
-
-There is a constant N = 100 in the code. If it helps, you can modify
-this constant to help with testing.
+You don't have to write a test for every possible input -- try smaller
+values of N or simple sets of denominations.
+Are there some of these simpler cases where you can easily predict what the output
+should be?
 """
 
 import pytest
 
 from typing import List
 
-N = 100
+DEFAULT_N = 100
 
 # score function (in general, anything increasing
 # in avg and numdenominations makes sense here)
@@ -92,7 +101,7 @@ def min_next(i: int, denoms: List[int], bills_for: List[int]) -> int:
     ])
 
 # avg # of bills to create a random value from 1 to N
-def get_avg(denoms: List[int]) -> float:
+def get_avg(denoms: List[int], N=DEFAULT_N) -> float:
     if 1 not in denoms:
         print("Warning: first denomination should be 1")
         # return infinity
@@ -107,7 +116,7 @@ def get_avg(denoms: List[int]) -> float:
     return sum(bills_for) / len(bills_for)
 
 """
-Test demonstrating the bug
+A single test demonstrating the bug
 
 Unskip the test when it is ready.
 """

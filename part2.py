@@ -80,6 +80,10 @@ def from_csv(csv):
 Now that you have written both functions, unskip (enable) the following tests.
 Which of them passes for your implementation?
 
+===== ANSWER Q3 BELOW =====
+
+===== END OF Q3 ANSWER =====
+
 If they don't pass: add a @pytest.mark.xfail annotation to the test.
 
 **Important:**
@@ -105,6 +109,10 @@ If either test failed:
 
 4. What went wrong?
 
+===== ANSWER Q4 BELOW =====
+
+===== END OF Q4 ANSWER =====
+
 5. There are at least 4 ways we could modify our code:
 - By changing the serialization function;
 - By changing the deserialization function;
@@ -114,9 +122,17 @@ If either test failed:
 
 Which of the above solutions would succeed to get the tests passing?
 
+===== ANSWER Q5 BELOW =====
+
+===== END OF Q5 ANSWER =====
+
 6. Do you have a preferred solution?
 Imagine this were a real application and real users were entering their names in
 production. Would one of the above solutions be more secure than the others?
+
+===== ANSWER Q6 BELOW =====
+
+===== END OF Q6 ANSWER =====
 
 7. Pick one way and implement it below.
 """
@@ -128,6 +144,10 @@ production. Would one of the above solutions be more secure than the others?
 
 The following function was added to print out information about the user.
 Try writing a Hypothesis test for this function. Is what you wrote useful?
+
+===== ANSWER Q8 BELOW =====
+
+===== END OF Q8 ANSWER =====
 """
 
 def print_user(self):
@@ -148,6 +168,10 @@ def test_print_user(name, age, friends):
 However, it was implemented incorrectly.
 
 Uncomment the test. It runs for a long time before failing -- why?
+
+===== ANSWER Q9 BELOW =====
+
+===== END OF Q9 ANSWER =====
 
 Fix the has_friend implementation so that the test passes.
 """
@@ -177,6 +201,11 @@ def test_has_friend(name1, age1, friends1, name2, age2, friends2):
 (That is, that fails quickly / in a reasonable amount of time?)
 
 Why or why not?
+
+===== ANSWER Q10 BELOW =====
+
+===== END OF Q10 ANSWER =====
+
 """
 
 """
@@ -186,6 +215,12 @@ and waits to get a user. For the purposes of this exercise,
 let's assume that the server is not available.
 
 What happens when you uncomment the test?
+
+===== ANSWER Q11 BELOW =====
+
+===== END OF Q11 ANSWER =====
+
+**Important:** Make sure you mark the test as skipped again afterwards, so that your pytest still runs!
 """
 
 def server_response():
@@ -206,6 +241,7 @@ def user_from_server():
     return User(name, int(age), friends.split(","))
 
 @pytest.mark.skip(reason="Unskip for exercise 11")
+# Make sure you mark it skipped again afterwards!
 def test_user_from_server():
     user = user_from_server()
     assert user is not None
@@ -213,8 +249,11 @@ def test_user_from_server():
 """
 12. Is there any "assertion" that you could write to reasonably test for this behavior?
 (Even given an arbitrary amount of time?)
-
 Why or why not?
+
+===== ANSWER Q12 BELOW =====
+
+===== END OF Q12 ANSWER =====
 """
 
 """
@@ -223,8 +262,11 @@ However, it was again implemented incorrectly.
 The function overwrites any existing friends with the new friend.
 
 Unskip the test. What happens?
-
 Explain what might have gone wrong here.
+
+===== ANSWER Q13 BELOW =====
+
+===== END OF Q13 ANSWER =====
 """
 
 def add_friend(self, other):
@@ -246,6 +288,11 @@ def test_add_friend(name1, age1, name2, age2):
 """
 14. Using the above, what can we conclude more generally
 about specifications?
+
+===== ANSWER Q14 BELOW =====
+
+===== END OF Q14 ANSWER =====
+
 """
 
 """
@@ -297,7 +344,7 @@ def test_update_age_with_2(name, age, f):
     raise NotImplementedError
 
 """
-17. Bonus question (Hard, extra credit):
+17. Bonus question (Extra credit):
 
 The problem with the specification in exercise 16 is that it assumes f is pure,
 but in the real world, this is not very realistic.
@@ -306,10 +353,9 @@ object itself.
 
 Is there any way to test that the function behaves correctly without assuming f is pure?
 
-Try writing a test that does not assume f is pure and passes.
-"""
+Answer in words only. Hint: Python is a highly dynamic language!
 
-@pytest.mark.skip(reason="Extra credit")
-# @given(..)
-def test_update_age_with_3(name, age, f):
-    raise NotImplementedError
+===== ANSWER Q17 BELOW =====
+
+===== END OF Q17 ANSWER =====
+"""

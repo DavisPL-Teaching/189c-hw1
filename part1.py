@@ -7,15 +7,29 @@ from hypothesis import strategies as st
 import pytest
 
 """
-A. Writing specifications, part 1
+A. Writing specifications
 
-Consider the average function that we discussed in lecture.
-Write a specification for the following properties,
-and use Hypothesis to check which of them hold.
+Consider the absolute value function:
+"""
 
-For each property, you should use floating point numbers
-between -10000 and 10000 (to avoid overflow).
-If needed, you can also bound the list size (e.g., to size 100)
+def abs(x):
+    if x >= 0:
+        return x
+    else:
+        return -x
+
+"""
+Write a specification for the following properties using Hypothesis:
+
+1. If x is greater than or equal to 0, then the absolute value of x is equal to x.
+
+2. If x is less than y, then the absolute value of x is less than the absolute value of y.
+
+3. If x is equal to y + 1, then the absolute value of x is equal to 1 plus the absolute value of y.
+
+4. The absolute value applied twice (absolute value of the absolute value of x) is equal to the absolute value of x.
+
+5. The absolute value of (x + y) is less than or equal to (the absolute value of x) + (the absolute value of y).
 
 - To run the test after implementing it, remove the skip annotation:
 @pytest.mark.skip(reason="Unimplemented")
@@ -25,80 +39,105 @@ If needed, you can also bound the list size (e.g., to size 100)
 to tell pytest that the test is expected to fail.
 We will use this during grading to check if you have correctly identified the properties!
 
-The @given annotation and specification is written for you for the first one.
+The first specification is written for you.
 
-1. The average of a list of nonnegative numbers is nonnegative.
-
-2. The average of x and -x is 0.
-
-3. The average of a list of numbers that are all the same number x is equal to x.
-
-4. The average of a concatenation of two lists l1 and l2 is equal to the average of
-the two averages of l1 and l2.
-
-5. The average of a concatenation of two lists l1 and l2 is between the averages of
-l1 and l2, up to a small error (say, .000001).
-(Hint: you may need to use the min and max function)
-
-6. The average of a concatenation of two lists l1 and l2 is equal to
-(len(l1) * average(l1) + len(l2) * average(l2)) / (len(l1) + len(l2)),
-up to a small error (say, .000001).
-(Hint: you may need to use the abs function)
+You should pick a @given annotation for each property that makes sense
+for the property in mind, and use assert() statements to check the property.
+You may also choose to use assume() statements also if you find them helpful.
 """
-
-def average(l):
-    return sum(l) / len(l)
 
 @given(
-    st.lists(
-        st.floats(min_value=0,max_value=10000),
-        min_size=1,
-    )
+    st.integers(min_value=0, max_value=1000),
 )
-def test_average_1(l):
-    assert average(l) >= 0
+def test_abs_1(x):
+    assert abs(x) == x
 
 @pytest.mark.skip(reason="Unimplemented")
 # @given(...)
-def test_average_2(x):
+def test_abs_2(x, y):
     # TODO
-    pass
+    raise NotImplementedError
 
 @pytest.mark.skip(reason="Unimplemented")
 # @given(...)
-def test_average_3(x, n):
+def test_abs_3(x, y):
     # TODO
-    pass
+    raise NotImplementedError
 
 @pytest.mark.skip(reason="Unimplemented")
 # @given(...)
-def test_average_4(l1, l2):
+def test_abs_4(x):
     # TODO
-    pass
+    raise NotImplementedError
 
 @pytest.mark.skip(reason="Unimplemented")
 # @given(...)
-def test_average_5(l1, l2):
+def test_abs_5(x, y):
     # TODO
-    pass
-
-@pytest.mark.skip(reason="Unimplemented")
-# @given(...)
-def test_average_6(l1, l2):
-    # TODO
-    pass
+    raise NotImplementedError
 
 """
-Now answer these questions:
-7. For each property that failed, why did it fail?
+B. Stronger and weaker specifications.
 
-8. Which property was the most surprising to you and why?
+6. Write two of your own specifications for the abs() function which satisfy the following:
+
+- The first specification should be *weaker* than the second one.
+  That is, any program satisfying the second spec should satisfy the first.
+
+- The first specification should be true for abs() and the second should be false for abs().
+
+You may change the method signatures in test_abs_6_weaker and test_abs_6_stronger
+(as well as in the following part test_q8) if you would like to add additional parameters.
 """
 
-"""
-B. Writing specifications, part 2
+@pytest.mark.skip(reason="Unimplemented")
+# @given(...)
+def test_abs_6_weaker(x):
+    # TODO
+    raise NotImplementedError
 
-Write a specification for the following two functions.
+@pytest.mark.skip(reason="Unimplemented")
+# @given(...)
+def test_abs_6_stronger(x):
+    # TODO
+    raise NotImplementedError
+
+"""
+Now answer the following questions:
+
+7. Is it possible to have an implementation of abs() that is the other way around, i.e. passes your stronger spec and fails the weaker one?
+
+===== ANSWER Q7 BELOW =====
+
+===== END OF Q7 ANSWER =====
+
+8. Is it possible to have an implementation of abs() that is different than the correct implementation (it should differ in a meaningful way on at least one input),
+but still passes the same set of specs from Q1-Q5?
+(i.e., passes all the specs we considered in Q1-Q5 that passed for abs, not including any xfail tests)?
+If so, give an example, if not, state why not.
+
+===== ANSWER Q8 BELOW =====
+
+===== END OF Q8 ANSWER =====
+"""
+
+# Example here (if any)
+def q8_example(x):
+    # TODO
+    raise NotImplementedError
+
+# If so, write a test that shows it passes the tests so far
+# (Otherwise, leave the code below as skipped and change the reason= annotation)
+@pytest.mark.skip(reason="Unimplemented")
+# @given(...)
+def test_q8(x):
+    # TODO
+    raise NotImplementedError
+
+"""
+C. Writing specifications, continued
+
+Write a specification in Hypothesis for the following two functions.
 
 9. pad_with_spaces
 
@@ -109,7 +148,10 @@ on all possible inputs.
 The @given annotations are written for you.
 
 Clarification on "Completely describe the behavior of the function":
-this means that you should take the output of the function, and check that every piece of data in it was computed correctly.
+This is the concept of "full functional correctness" that we will cover in class.
+It roughly means that "every single part of the output" is correct.
+So you should take the output of the function, and check that every individual
+piece of data in it was computed correctly.
 It may feel like you are re-implementing the logic of the function in some parts, that's OK.
 """
 
@@ -180,9 +222,9 @@ def test_split_in_half_buggy(s):
     raise NotImplementedError
 
 """
-C. Exploring preconditions: Fahrenheit-Celsius conversion
+D. Exploring preconditions: Fahrenheit-Celsius conversion
 
-The next few exercises are about playing with preconditions!
+The next few exercises are about playing with preconditions.
 Preconditions are the input constraints inside
 the @given annotations that we have been writing.
 We will use Hypothesis preconditions to determine the
@@ -238,6 +280,8 @@ from hypothesis import settings
 which we have added for the tests below.
 By default, only 100 examples are tested.
 
+Also, if you find anything that holds for all Python integers within a reasonable range that you tested, please indicate so in the comments and use a Hypothesis bound like `@given(st.integers(min_value=-1_000_000, max_value=1_000_000))`. Don't test larger or lower than that.
+
 Remember to remove @pytest.mark.skip(reason="Unimplemented")
 once you have implemented each test.
 """
@@ -261,7 +305,7 @@ def test_c_to_f_v1(c):
 """
 13. Here is a more precise trick:
 
-For F to C, subtract 32, then divide by two, and let that result be x.
+For F to C, subtract 32, then divide by two (float division), and let that result be x.
 Then compute x / 10 (float division) and add it to x.
 Round the result to the nearest integer.
 Example:
@@ -269,7 +313,7 @@ Example:
 
 For C to F, multiply by 2, and let that result by x.
 Then compute x / 10 (integer division) and subtract it from x.
-Finally, add 32, and round to the nearest integer.
+Finally, add 32.
 Example:
 20 C -> 20 * 2 = 40 -> 40 / 10 = 4 -> 40 - 4 + 32 = 68 F.
 
