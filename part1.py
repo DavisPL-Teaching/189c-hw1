@@ -55,6 +55,10 @@ def test_abs_1(x):
 @pytest.mark.skip(reason="Unimplemented")
 # @given(...)
 def test_abs_2(x, y):
+    # In Python code, a good way to indicate unimplemented
+    # functions is to raise a NotImplementedError exception.
+    # We will use this style in the rest of the file. Remove the following
+    # lines once you have implemented the test.
     # TODO
     raise NotImplementedError
 
@@ -171,10 +175,6 @@ def pad_with_spaces(s, n):
     st.integers(min_value=0, max_value=1000),
 )
 def test_pad_with_spaces(s, n):
-    # (In Python, a better style than using 'pass' to indicate unimplemented
-    # functions is to raise a NotImplementedError exception.
-    # We will use this style in the rest of the file. Remove the following
-    # line once you have implemented the test.)
     # TODO
     raise NotImplementedError
 

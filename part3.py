@@ -7,7 +7,7 @@ Unfortunately, it contains a bug -- your goal is to find and fix it.
 
 === Your task ===
 
-Write a single test using Hypothesis to identify for the bug.
+Write a single test using Hypothesis to identify the bug.
 Your test doesn't have to cover all behaviors on all inputs, but it should
 test a more interesting behavior than just a single input.
 
