@@ -35,6 +35,10 @@ but don't modify the global parameter DEFAULT_N.
 We will grade your test by running it on the buggy and the fixed version of the program, to check if it can successfully identify the buggy version while
 passing for the fixed version.
 
+Your test should be a nontrivial Hypothesis test - it should cover behavior on more than one input,
+not just the behavior on a single input.
+So it should have at least one input parameter that is randomly generated.
+
 === Running the code ===
 
 You can try out the code by running `python3 part3.py <list of integers>`.
