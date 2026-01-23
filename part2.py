@@ -103,9 +103,12 @@ def test_deserialize_serialize(name, age):
     assert to_csv(from_csv(csv)) == csv
 
 """
-If both tests passed (this is unlikely), you may skip 4-7.
+If both tests passed (this is unlikely):
+answer the following Questions 4-7 as a hypothetical - answer these
+for a hypothetical different implementation that fails at least one test.
 
 If either test failed:
+answer Questions 4-7 about your implementation above.
 
 4. What went wrong?
 
