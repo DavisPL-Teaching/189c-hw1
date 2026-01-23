@@ -134,7 +134,7 @@ def q8_example(x):
 # (Otherwise, leave the code below as skipped and change the reason= annotation)
 @pytest.mark.skip(reason="Unimplemented")
 # @given(...)
-def test_q8(x):
+def test_q8(x, y):
     # TODO
     raise NotImplementedError
 
