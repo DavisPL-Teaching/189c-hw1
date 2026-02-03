@@ -358,6 +358,10 @@ Is there any way to test that the function behaves correctly without assuming f 
 
 Answer in words only. Hint: Python is a highly dynamic language!
 
+Please note: If you use any external libraries to try to solve this problem - don't
+include them in your final submission. You can include some code that is commented
+out if you like.
+
 ===== ANSWER Q17 BELOW =====
 
 ===== END OF Q17 ANSWER =====

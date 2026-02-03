@@ -28,6 +28,8 @@ We will submit the homework through Gradescope.
 
 - Don't change the function signatures unless you are asked to do so. This ensures that our gradings scripts will work correctly.
 
+- Please do not use any external libraries. All problems are solvable without external libraries.
+
 - Please do not modify the file names or the list of `test_` functions in parts 1, 2, and 3, as your results will be compared with the official rubric. If you want to add other tests, remember to comment them out after.
 
 - If your code is correct, **there should be no pytest failures (shown in red)** -- instead, you should be using the annotation `pytest.mark.xfail` to mark tests that are expected to fail. These will show up in yellow.
