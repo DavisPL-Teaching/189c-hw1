@@ -118,7 +118,8 @@ Now answer the following questions:
 8. Is it possible to have an implementation of abs() that is different than the correct implementation (it should differ in a meaningful way on at least one input),
 but still passes the same set of specs from Q1-Q5?
 (i.e., passes all the specs we considered in Q1-Q5 that passed for abs, not including any xfail tests)?
-If so, give an example, if not, state why not.
+- If so, give an example below, and describe how your example works briefly in the space given.
+- If not, state why not.
 
 ===== ANSWER Q8 BELOW =====
 
